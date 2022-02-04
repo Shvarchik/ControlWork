@@ -15,7 +15,7 @@ void PrintArray (string[] array, int length)
 int CreateNewArray (string [] array, string [] newArray)
 {
     int newCount = 0;               // счетчик заполненных элементов нового массива
-    for (int i=0;i<array.Length;i++)
+    for (int i=0; i < array.Length && newCount < newArray.Length ;i++)
     {
         if (array[i].Length <=3)
         {
