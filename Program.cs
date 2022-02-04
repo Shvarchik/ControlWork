@@ -27,6 +27,8 @@ int CreateNewArray (string [] array, string [] newArray)
 } 
 string[] stringArray = new string[] { "1234", "-2", "Kazan", ":)" };
 
+DateTime dt = DateTime.Now;
+
 string [] ResultArray = new string [50];
 int countResult = CreateNewArray (stringArray,ResultArray);
 
@@ -34,3 +36,5 @@ Console.WriteLine ("Исходный массив:");
 PrintArray (stringArray,stringArray.Length);
 Console.WriteLine ("Массив результат:");
 PrintArray (ResultArray,countResult);
+
+System.Console.WriteLine((DateTime.Now-dt).TotalMilliseconds);
