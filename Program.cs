@@ -14,30 +14,35 @@ int CountNewArray(string[] array)
     }
     return newCount;
 }
-void CreateNewArray(string[] array, string[] newArray)
+string[] CreateNewArray(string[] array, int lengthNewArray)
 {
+    string[] newArray = new string[lengthNewArray];
     int countNewArray = 0;
     for (int i = 0; i < array.Length; i++)
     {
         if (array[i].Length <= 3)
         {
-            newArray[countNewArray] = array[i];
-            countNewArray++;
+            newArray[countNewArray++] = array[i];
         }
     }
+    return newArray;
 }
 void PrintArray(string[] array)
 {
     int length = array.Length;
     Console.Write("[");
-    for (int i = 0; i < length - 1; i++)
-        Console.Write($"'{array[i]}', ");
-    Console.WriteLine($"'{array[length - 1]}']");
+    if (length == 0)
+        Console.Write(" ]");
+    else
+    {
+        for (int i = 0; i < length - 1; i++)
+            Console.Write($"'{array[i]}', ");
+        Console.WriteLine($"'{array[length - 1]}']");
+    }
 }
 
-string[] stringArray = new string[] { "1234", "-2", "Kazan", ":)" };
-string[] ResultArray = new string[CountNewArray(stringArray)];
-CreateNewArray(stringArray, ResultArray);
+string[] stringArray = new string[] { "1234", "Kazan", "qer", "oh:)" };
+string[] ResultArray = CreateNewArray(stringArray, CountNewArray(stringArray));
 Console.WriteLine("Исходный массив:");
 PrintArray(stringArray);
 Console.WriteLine("Массив результат:");
